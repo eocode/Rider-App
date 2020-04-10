@@ -1,0 +1,23 @@
+# Base
+pytz==2018.7
+python-slugify==1.2.6
+Pillow==5.3.0
+psycopg2==2.7.4 --no-binary psycopg2
+
+# Django
+django==2.0.9
+
+# Environment
+django-environ==0.4.5
+
+# Passwords security
+argon2-cffi==18.3.0
+
+# Static files
+whitenoise==4.1.2
+
+# Celery
+redis>=2.10.6, < 3
+django-redis==4.10.0
+celery==4.2.1
+flower==0.9.2
