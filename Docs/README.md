@@ -105,7 +105,9 @@ Ejecutar las tareas de gestión/administración como procesos que solo se ejecut
 * Redis : 6379
 * Celery : 5555
 
+Ayuda a manejar configuraciones
 https://github.com/joke2k/django-environ
+
 https://github.com/django-extensions/django-extensions
 https://github.com/anymail/django-anymail
 https://github.com/jschneier/django-storages
