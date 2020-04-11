@@ -15,7 +15,7 @@ See Django notes for this project  [here](/Docs/README.md)
 # Preview
 
 <div align="center">
-  <img src="images/5.png">
+  <img src="images/1.png">
   <small>Post an image</small>
 </div>
 
@@ -74,6 +74,8 @@ docker-compose ps
 docker rm -f <ID>
 
 docker-compose run --rm --service-ports django
+docker rm -f djangoavanzado_django_1
+docker-compose run --rm  --service-ports django
 ```
 
 # How to run

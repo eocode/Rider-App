@@ -12,6 +12,9 @@
 - [Codebase](#codebase)
   - [Docker](#docker)
   - [Stack](#stack)
+- [Setup alternativo](#setup-alternativo)
+  - [Cookiecutter](#cookiecutter)
+  - [Setup para Django](#setup-para-django)
 
 <hr/>
 
@@ -111,3 +114,9 @@ https://github.com/joke2k/django-environ
 https://github.com/django-extensions/django-extensions
 https://github.com/anymail/django-anymail
 https://github.com/jschneier/django-storages
+
+# Setup alternativo
+## Cookiecutter
+https://cookiecutter.readthedocs.io/en/1.7.0/index.html
+## Setup para Django
+https://github.com/pydanny/cookiecutter-django
