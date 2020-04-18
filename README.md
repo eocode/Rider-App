@@ -60,9 +60,6 @@ docker-compose down
 Admin commands
 ``docker-compose run --rm django COMMAND``
 
-App commands
-
-``docker-compose run --rm django python manage.py createsuperuser``
 
 Enable debugger
 ```shell
@@ -74,3 +71,21 @@ docker-compose run --rm --service-ports django
 docker rm -f djangoavanzado_django_1
 docker-compose run --rm  --service-ports django
 ```
+
+Remove volume database
+```bash
+docker-compose ps
+docker-compose down
+docker volume ls
+docker volume rm djangoavanzado_local_postgres_data
+docker-compose up
+```
+
+Run migrations
+```shell
+docker-compose run --rm django python manage.py makemigrations
+```
+
+App commands
+
+``docker-compose run --rm django python manage.py createsuperuser``
