@@ -84,8 +84,38 @@ docker-compose up
 Run migrations
 ```shell
 docker-compose run --rm django python manage.py makemigrations
+docker-compose run --rm django python manage.py migrate
 ```
 
 App commands
 
-``docker-compose run --rm django python manage.py createsuperuser``
+```shell
+docker-compose run --rm django python manage.py createsuperuser
+docker-compose run --rm django python manage.py shell_plus
+```
+
+Import data
+```shell
+docker-compose run --rm django python manage.py shell_plus
+
+from import_circles import import_data
+import_data('data.csv')
+```
+
+Httpie
+```shell
+pip install httpie
+http google.com
+http localhost:8000/circles/ -v
+http localhost:8000/circles/ -b
+```
+
+Rebuild image when change dependences
+
+```bash
+docker-compose down
+docker-compose build
+docker-compose up
+docker rm -f djangoavanzado_django_1
+docker-compose run --rm  --service-ports django
+```
