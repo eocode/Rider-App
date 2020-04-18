@@ -6,7 +6,6 @@ App rider with Django REST Framework
 - [Preview](#preview)
 - [Build docker image](#build-docker-image)
 - [Run the stack](#run-the-stack)
-- [How to run](#how-to-run)
 
 <hr/>
 
@@ -38,9 +37,6 @@ Run server
 
 ``docker-compose -f local.yml up``
 
-Run on background console
-``docker-compose -f local.yml up``
-
 Open the Django project
 `http://localhost:8000`
 `http://localhost:8000/admin/`
@@ -53,7 +49,8 @@ Stop services
 
 Tip
 ```bash
-export COMPOSE_FILE=local.yml
+export COMPOSE_FILE=local.yml # Linux
+set COMPOSE_FILE=local.yml # Windows
 docker-compose build
 docker-compose up
 docker-compose ps
@@ -77,22 +74,3 @@ docker-compose run --rm --service-ports django
 docker rm -f djangoavanzado_django_1
 docker-compose run --rm  --service-ports django
 ```
-
-# How to run
-
-In a Python enviroment
-
-`python -m venv env`
-`pip freeze`
-
-Install dependences
-
-`pip install -r requirements`
-
-See command Django Admin
-
-`django-admin`
-
-Run the server app
-
-`python manage.py runserver`
