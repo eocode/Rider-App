@@ -15,6 +15,7 @@
 - [Setup alternativo](#setup-alternativo)
   - [Cookiecutter](#cookiecutter)
   - [Setup para Django](#setup-para-django)
+- [Buenas prácticas para el diseño de un API REST](#buenas-pr%c3%a1cticas-para-el-dise%c3%b1o-de-un-api-rest)
 
 <hr/>
 
@@ -120,3 +121,17 @@ https://github.com/jschneier/django-storages
 https://cookiecutter.readthedocs.io/en/1.7.0/index.html
 ## Setup para Django
 https://github.com/pydanny/cookiecutter-django
+
+# Buenas prácticas para el diseño de un API REST
+
+APIGEE
+https://pages.apigee.com/rs/apigee/images/api-design-ebook-2012-03.pdf
+
+SSL
+Cache
+Valida todo
+Protección CSRF
+Limita los requests
+Complementa tu API con un SDK
+
+https://developer.mozilla.org/es/docs/Web/HTTP/Status
