@@ -16,6 +16,10 @@
   - [Cookiecutter](#cookiecutter)
   - [Setup para Django](#setup-para-django)
 - [Buenas prácticas para el diseño de un API REST](#buenas-pr%c3%a1cticas-para-el-dise%c3%b1o-de-un-api-rest)
+- [Autenticación](#autenticaci%c3%b3n)
+  - [HTTP Autentication](#http-autentication)
+  - [Ouath](#ouath)
+  - [JWT](#jwt)
 
 <hr/>
 
@@ -135,3 +139,14 @@ Limita los requests
 Complementa tu API con un SDK
 
 https://developer.mozilla.org/es/docs/Web/HTTP/Status
+
+# Autenticación
+## HTTP Autentication
+https://developer.mozilla.org/es/docs/Web/HTTP/Authentication
+
+## Ouath
+https://es.wikipedia.org/wiki/OAuth
+
+## JWT
+https://jwt.io/
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
