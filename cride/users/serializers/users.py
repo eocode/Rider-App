@@ -76,7 +76,7 @@ class UserSignUpSerializer(serializers.Serializer):
     def create(self, data):
         """Handle user and profile creation."""
         data.pop('password_confirmation')
-        user = User.objects.create_user(**data, is_verified=False)
+        user = User.objects.create_user(**data, is_verified=False, is_client=True)
         profile = Profile.objects.create(user=user)
         self.send_confirmation_email(user)
         return user
