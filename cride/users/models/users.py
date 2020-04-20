@@ -41,7 +41,7 @@ class User(CRideModel, AbstractUser):
         )
     )
 
-    is_verfied = models.BooleanField(
+    is_verified = models.BooleanField(
         'verified',
         default=True,
         help_text='Set to true when the user have verified its email address.'

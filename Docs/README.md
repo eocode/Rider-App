@@ -150,3 +150,4 @@ https://es.wikipedia.org/wiki/OAuth
 ## JWT
 https://jwt.io/
 https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
+https://github.com/jpadilla/pyjwt

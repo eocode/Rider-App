@@ -119,3 +119,12 @@ docker-compose up
 docker rm -f djangoavanzado_django_1
 docker-compose run --rm  --service-ports django
 ```
+
+Test API
+
+```shell
+http localhost:8000/circles/create/ name=Manzana slug_name=manzana -b
+http localhost:8000/users/login/ email="youremail@mail.com" password="yourpass" -v
+http localhost:8000/users/login/ email=demo@mail.com password=calc12345pT -b
+http localhost:8000/users/signup/ email=demo@mail.com first_name=demo last_name=user password=calc12345pT password_confirmation=qwertyuiop12345 phone_number=5434234234 username=dem
+```
