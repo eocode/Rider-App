@@ -24,7 +24,7 @@ class Membership(CRideModel):
 
     # Invitations
     used_invitations = models.PositiveSmallIntegerField(default=0)
-    remaining_invitation = models.PositiveSmallIntegerField(default=0)
+    remaining_invitations = models.PositiveSmallIntegerField(default=0)
     invited_by = models.ForeignKey(
         'users.User',
         null=True,
@@ -46,4 +46,7 @@ class Membership(CRideModel):
     def __str__(self):
         """Return username and circle"""
 
-        return f'@{user.username} at #{circle.slug_name}'
+        return '@{} at #{}'.format(
+            self.user.username,
+            self.circle.slug_name
+        )

@@ -129,5 +129,6 @@ http localhost:8000/users/verify/ token="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.ey
 
 http localhost:8000/users/login/ email=demo@mail.com password=calc12345pT -b
 
+http localhost:8000/circles/ "Authorization: Token 9bbbc8f0b35a679240315c1c2f4d366a89070625" -v
 http localhost:8000/circles/create/ name=Manzana slug_name=manzana -b
 ```
