@@ -22,8 +22,8 @@ class CircleViewSet(
     ):
     """Circle view set."""
 
-    queryset = Circle.objects.all()
     serializer_class = CircleModelSerializer
+    lookup_field = 'slug_name'
 
     def get_permissions(self):
         """Assign permissions based on action"""
