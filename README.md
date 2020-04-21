@@ -3,6 +3,7 @@
 App rider with Django REST Framework
 
 ## Tabla de Contenido<!-- omit in toc -->
+- [Features](#features)
 - [Preview](#preview)
 - [Build docker image](#build-docker-image)
 - [Run the stack](#run-the-stack)
@@ -10,6 +11,18 @@ App rider with Django REST Framework
 <hr/>
 
 See Django notes for this project  [here](/Docs/README.md)
+
+# Features
+Who offers the ride?
+In than circle is the offer?
+Departure place
+Closing hour
+Arrival place
+Check In
+Available seats
+Extra comments
+Save passengers in circles
+Active and deactive ride
 
 # Preview
 
