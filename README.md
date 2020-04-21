@@ -68,9 +68,7 @@ docker-compose ps
 docker rm -f <ID>
 
 docker-compose run --rm --service-ports django
-docker rm -f djangoavanzado_django_1
-docker-compose run --rm  --service-ports django
-```
+docker rm -f djangoavanzado_django_1```
 
 Remove volume database
 ```bash
