@@ -42,12 +42,12 @@ See Django notes for this project  [here](/Docs/README.md)
 * Ratings
 
 # Stack
-* Gunicorn
-* Caddy
+* Caddy - HTTPS Server write in Go
 * Python 3
 * Django / DRF / Flower / Celery
 * PostgreSQL
 * Redis
+* Docker
 
 # Preview
 
