@@ -9,6 +9,7 @@ App rider with Django REST Framework
   - [Postman API](#postman-api)
   - [Rest manager](#rest-manager)
   - [Program async Tasks with Flower for Celery](#program-async-tasks-with-flower-for-celery)
+  - [Testing](#testing)
 - [Build docker image](#build-docker-image)
 - [Run the stack](#run-the-stack)
 
@@ -58,6 +59,12 @@ For configure and access see localhost:5555 and set the user:password in `.envs.
   <img src="images/flower.png">
 </div>
 
+## Testing
+
+<div align="center">
+  <img src="images/testing.png">
+</div>
+
 
 # Build docker image
 Docker build the next images
@@ -100,6 +107,10 @@ docker-compose up
 docker-compose ps
 docker-compose down
 ```
+
+<div align="center">
+  <img src="images/running.png">
+</div>
 
 Admin commands
 ``docker-compose run --rm django COMMAND``
@@ -173,4 +184,16 @@ http localhost:8000/users/login/ email=demo@mail.com password=calc12345pT -b
 
 http localhost:8000/circles/ "Authorization: Token 9bbbc8f0b35a679240315c1c2f4d366a89070625" -v
 http localhost:8000/circles/create/ name=Manzana slug_name=manzana -b
+```
+
+Clean the project
+
+```bash
+docker-compose run --rm django flake8
+```
+
+Run project test
+
+```bash
+docker-compose run --rm django pytest
 ```
