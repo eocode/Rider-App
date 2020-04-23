@@ -4,6 +4,7 @@ App rider with Django REST Framework
 
 ## Tabla de Contenido<!-- omit in toc -->
 - [Features](#features)
+- [Stack](#stack)
 - [Preview](#preview)
   - [Admin app](#admin-app)
   - [Postman API](#postman-api)
@@ -12,6 +13,15 @@ App rider with Django REST Framework
   - [Testing](#testing)
 - [Build docker image](#build-docker-image)
 - [Run the stack](#run-the-stack)
+- [Django](#django)
+- [Static files](#static-files)
+- [Admin](#admin)
+- [E-Mail](#e-mail)
+- [Redis](#redis)
+- [Flower](#flower)
+- [AWS](#aws)
+- [PostgreSQL](#postgresql)
+- [supervisor](#supervisor)
 
 <hr/>
 
@@ -30,6 +40,14 @@ See Django notes for this project  [here](/Docs/README.md)
 * Save passengers in circles
 * Active and deactive ride
 * Ratings
+
+# Stack
+* Gunicorn
+* Caddy
+* Python 3
+* Django / DRF / Flower / Celery
+* PostgreSQL
+* Redis
 
 # Preview
 
@@ -196,4 +214,147 @@ Run project test
 
 ```bash
 docker-compose run --rm django pytest
+```
+
+# Deploy on AWS
+
+* Create an Ubuntu instance on EC2
+* Create IAM Role and apply AWS Service->EC2->AmazonS3FullAccess **This has more restrictive**
+* Open HTTP/HTTPS/SSH **(Restringe by IP)**
+* Configure DNS
+* Save the key access for SSH
+
+With ssh or Putty on windows connect to instance
+
+Update S.O
+
+```bash
+sudo apt-get update
+sudo apt-get upgade
+```
+
+* Install Docker in S.O
+
+https://docs.docker.com/engine/install/ubuntu/
+
+* Install Docker compose
+
+https://docs.docker.com/compose/install/
+
+* Install git and clone the repo
+
+* Configure production credentials on `.envs.production` and make 3 files
+* Configure AWS Bucket on S3
+  * Create a bucket **comparte-ride** with basic config
+
+Add a bucket politic https://docs.aws.amazon.com/AmazonS3/latest/user-guide/add-bucket-policy.html
+```json
+{
+   "Id": "Policy1548096183802",
+   "Version": "2012-10-17",
+   "Statement": [
+     {
+       "Sid": "Stmt1548096182270",
+       "Action": [
+         "s3:GetObject"
+       ],
+       "Effect": "Allow",
+       "Resource": "arn:aws:s3:::BUCKET-NAME/*",
+       "Principal": "*"
+     }
+   ]
+ }
+```
+
+* Domain Namecheap
+Add next 2 registers type address:
+
+A | www | IP
+A | @ | IP
+
+Consider Cloudflare and AWS Route 53.
+
+> The values ​​for production must be different
+
+.django
+```.django
+# Django
+DJANGO_SETTINGS_MODULE=config.settings.production
+DJANGO_DEBUG=False
+DJANGO_SECRET_KEY=SECURE_SECRET_KEY
+
+# Static files
+DJANGO_AWS_STORAGE_BUCKET_NAME=S3_BUCKET_NAME
+
+# Admin
+DJANGO_ADMIN_URL=SECURE_ADMIN_URL/
+
+# E-Mail
+MAILGUN_API_KEY=SECRET_KEY
+MAILGUN_DOMAIN=SECRET_KEY
+
+# Redis
+REDIS_URL=redis://redis:6379/0
+
+# Flower
+CELERY_FLOWER_USER=SECURE_USER
+CELERY_FLOWER_PASSWORD=SECURE_PASSWORD
+
+# AWS
+DJANGO_AWS_STORAGE_BUCKET_NAME=comparteride
+```
+
+.postgres
+```bash
+# PostgreSQL
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=cride
+POSTGRES_USER=SECURE_USER
+POSTGRES_PASSWORD=SECURE_PASSWORD
+```
+
+See info in: https://caddyserver.com/docs/caddyfile
+.caddy
+```bash
+DOMAIN_NAME=comparteride.com
+```
+
+* Execute commands
+
+```bash
+mkdir cride/static
+sudo docker-compose -f production.yml build
+sudo docker-compose -f production.yml up
+sudo docker-compose -f production.yml run --rm django python manage.py
+sudo docker-compose -f production.yml run --rm django python manage.py migrate
+sudo docker-compose -f production.yml run --rm django python manage.py createsuperuser
+
+# supervisor
+sudo su
+apt-get install supervisor
+service supervisor restart
+cd /etc/supervisor/conf.d
+ls
+vim cride.conf
+```
+
+cride.conf
+```conf
+[program:cride]
+command=docker-compose -f production.yml up
+directory=/home/ubuntu/cride
+redirect_stderr=true
+autostart=true
+autorestart=true
+priority=10
+```
+
+Commands
+```bash
+supervisorctl reread
+supervisorctl update
+supervisorctl start cride
+supervisorctl status cride
+docker ps
 ```
