@@ -46,7 +46,7 @@ See Django notes for this project  [here](/Docs/README.md)
 * Python 3
 * Django / DRF / Flower / Celery
 * PostgreSQL
-* Redis
+* Redis - Cache Instance
 * Docker
 
 # Preview
