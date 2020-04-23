@@ -5,6 +5,10 @@ App rider with Django REST Framework
 ## Tabla de Contenido<!-- omit in toc -->
 - [Features](#features)
 - [Preview](#preview)
+  - [Admin app](#admin-app)
+  - [Postman API](#postman-api)
+  - [Rest manager](#rest-manager)
+  - [Program async Tasks with Flower for Celery](#program-async-tasks-with-flower-for-celery)
 - [Build docker image](#build-docker-image)
 - [Run the stack](#run-the-stack)
 
@@ -13,27 +17,49 @@ App rider with Django REST Framework
 See Django notes for this project  [here](/Docs/README.md)
 
 # Features
-Who offers the ride?
-In than circle is the offer?
-Departure place
-Closing hour
-Arrival place
-Check In
-Available seats
-Extra comments
-Save passengers in circles
-Active and deactive ride
+* Create and admin circles
+* Who offers the ride?
+* In than circle is the offer?
+* Departure place
+* Closing hour
+* Arrival place
+* Check In
+* Available seats
+* Extra comments
+* Save passengers in circles
+* Active and deactive ride
+* Ratings
 
 # Preview
 
+## Admin app
+
 <div align="center">
   <img src="images/1.png">
-  <small>Post an image</small>
 </div>
 
-# Build docker image
-`docker-compose -f local.yml build`
+## Postman API
+See collection for postman in root directory `CRide.postman_collection.json`
+<div align="center">
+  <img src="images/postman.png">
+</div>
 
+## Rest manager
+
+<div align="center">
+  <img src="images/RestManager.png">
+</div>
+
+## Program async Tasks with Flower for Celery
+
+For configure and access see localhost:5555 and set the user:password in `.envs.local.django`
+
+<div align="center">
+  <img src="images/flower.png">
+</div>
+
+
+# Build docker image
 Docker build the next images
 
 * cride_local_flower 
@@ -48,19 +74,24 @@ Docker build the next images
 
 Run server
 
-``docker-compose -f local.yml up``
+```bash
+export COMPOSE_FILE=local.yml # Linux
+set COMPOSE_FILE=local.yml # Windows
+docker-compose build
+docker-compose up
+```
 
 Open the Django project
 `http://localhost:8000`
 `http://localhost:8000/admin/`
 
-Validate status images
-`docker-compose -f local.yml ps`
+For validate that run services see
 
-Stop services
-`docker-compose -f local.yml down`
+<div align="center">
+  <img src="images/docker.png">
+</div>
 
-Tip
+Common comands for docker
 ```bash
 export COMPOSE_FILE=local.yml # Linux
 set COMPOSE_FILE=local.yml # Windows

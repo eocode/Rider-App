@@ -15,3 +15,4 @@ factory-boy==2.11.1
 
 # Code quality
 flake8==3.6.0
+

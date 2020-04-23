@@ -20,6 +20,7 @@
   - [HTTP Autentication](#http-autentication)
   - [Ouath](#ouath)
   - [JWT](#jwt)
+- [Tareas asincronas](#tareas-asincronas)
 
 <hr/>
 
@@ -151,3 +152,6 @@ https://es.wikipedia.org/wiki/OAuth
 https://jwt.io/
 https://django-rest-framework-simplejwt.readthedocs.io/en/latest/
 https://github.com/jpadilla/pyjwt
+
+# Tareas asincronas
+https://docs.celeryproject.org/en/stable/userguide/calling.html

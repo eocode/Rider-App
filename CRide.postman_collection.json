@@ -1,0 +1,827 @@
+{
+	"info": {
+		"_postman_id": "91d685d7-04ee-498c-b8c9-88ea1d052764",
+		"name": "CRide",
+		"description": "Curso de Django ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Circles",
+			"item": [
+				{
+					"name": "List Circles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/?limit=10&is_limited=1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "is_limited",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create circle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Coders\",\n\t\"slug_name\": \"coders\",\n\t\"about\": \"Coders México\",\n\t\"members_limit\": 10,\n\t\"is_limited\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/circles/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get circle",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/platzi-mexico",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"platzi-mexico"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update circle",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"F. Ciencias\",\n\t\"slug_name\": \"fciencias\",\n\t\"about\": \"Facultad de ciencias\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/circles/1/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partial update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Facultad de Ciencias, UNAM\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/circles/25/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"25",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete circle",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}/circles/22/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"22",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Users signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"y@mail.com\",\n\t\"password\": \"admin12345\",\n\t\"password_confirmation\": \"admin12345\",\n\t\"first_name\": \"Yessika\",\n\t\"last_name\": \"Sanchez\",\n\t\"phone_number\": \"+525512456487\",\n\t\"username\": \"yessika\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/signup/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"signup",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoieWVzc2lrYSIsImV4cCI6MTU4NzY3OTQ5MCwidHlwZSI6ImVtYWlsX2NvbmZpcm1hdGlvbiJ9.1CuTKU1AUIMqYJ_lN3tkz3fzY5dN9fXFXMApAbMaKA4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/verify/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"verify",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"e@mail.com\",\n\t\"password\": \"admin12345\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/login/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Detail",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/users/eocode/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"eocode",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Profile Partial Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "picture",
+									"type": "file",
+									"src": "/C:/Users/elias/Desktop/C5GmU1hW_400x400.jpg"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/eocode/profile/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"eocode",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"e@mail.com\",\n\t\"username\": \"eocode\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/eocode/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"eocode",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Partial Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Token {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"phone_number\": \"+555555555\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/users/eocode/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"users",
+								"eocode",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Members",
+			"item": [
+				{
+					"name": "Circle member delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "token {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/devs/members/eocode/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"devs",
+								"members",
+								"eocode",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circle member",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "token {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/coders/members/eocode",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"members",
+								"eocode"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Circle members",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/coders/members/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"members",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Circle member invitations",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/coders/members/eocode/invitations",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"members",
+								"eocode",
+								"invitations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Circle Join Member",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token 3b43d2f02da7986034192496ae837cad7ffdc107",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"invitation_code\": \"4KCSQE5XCP\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/circles/coders/members/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"members",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Rides",
+			"item": [
+				{
+					"name": "Ratings",
+					"item": [
+						{
+							"name": "Rating",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "token {{access_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"rating\": 5\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/circles/coders/rides/1/rate/",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"circles",
+										"coders",
+										"rides",
+										"1",
+										"rate",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "dcbf2fa1-a14d-4944-b305-be4764086ac6",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "f271fa50-4a6d-4a62-812c-6c784fea4152",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create ride",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"available_seats\": 4,\r\n    \"departure_location\": \"Orizaba 36, Roma Norte\",\r\n    \"departure_date\": \"2020-05-01T17:30:00-06:00\",\r\n    \"arrival_location\": \"Prometeo facultad de ciencias\",\r\n    \"arrival_date\": \"2020-05-01T19:30:00-06:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/circles/coders/rides/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"rides",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List rides",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/coders/rides/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"rides",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ride",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "token {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/coders/rides/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"rides",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update rides",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"departure_location\": \"Satelite\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/circles/coders/rides/1/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"rides",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Join ride",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/coders/rides/1/join/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"rides",
+								"1",
+								"join",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Finish ride",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "token {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/circles/coders/rides/1/finish/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"circles",
+								"coders",
+								"rides",
+								"1",
+								"finish",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
